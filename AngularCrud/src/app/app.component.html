@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>ANGULAR CRUD</h2>
+  <div class="top">
+    <h4 class="list-title">List of users</h4>
+    <ul class="list-users">
+      <li class="list-item" *ngFor="let employee of employees"
+      (click)="openForEdit(employee)"
+      [class.active]="employee == selectedEmployee"
+      ><span>{{employee.id}}</span> {{employee.name}} - {{employee.country}}</li>
+    </ul>
+  </div>
+  <div class="bot">
+    <div class="formulario">
+      <div class="titulo-form">
+        <h3>INFORMACION</h3>
+      </div>
+      <form action="#">
+        <div class="name">
+          <input type="text" [(ngModel)]="selectedEmployee.name" placeholder="INSERT A USER" name="name">
+        </div>
+        <div class="country">
+          <input type="text" [(ngModel)]="selectedEmployee.country" placeholder="INSERT COUNTRY" name="country">
+        </div>
+      </form>
+        <button (click)="addOrEdit()">ADD OR EDIT</button>
+        <button (click)="delete()"
+        >DELETE</button>
+    </div>
+  </div>
+</div>
